@@ -1,5 +1,16 @@
 const { pipeline, Transform } = require('stream');
 
+// Method 1: Reverse string without using Streams
+
+const reverse = () => {
+  console.log('Reverse input:');
+  process.stdin.on('data', (data) =>
+    process.stdout.write(data.reverse() + '\n')
+  );
+};
+
+// Method 2: Reverse string using Streams
+
 const transform = () => {
   const transformStream = () =>
     new Transform({
@@ -15,8 +26,14 @@ const transform = () => {
     });
   console.log('Reverse input:');
   pipeline(process.stdin, transformStream(), process.stdout, (err) => {
-    console.log(err);
+    if (err) {
+      console.log('Pipeline failed', err);
+    } else {
+      console.log('Pipeline succeeded!!!');
+    }
   });
 };
 
 transform();
+
+// reverse ();
