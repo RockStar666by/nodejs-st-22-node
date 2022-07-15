@@ -1,6 +1,6 @@
-const { pipeline } = require('stream');
-const fs = require('fs');
-const csv = require('csvtojson');
+import { pipeline } from 'stream';
+import { createWriteStream, createReadStream } from 'fs';
+import csv from 'csvtojson';
 const csvFilePath = './src/task-2/task-2-2/csv/nodejs-hw1-ex1.csv';
 const txtFilePath = './src/task-2/task-2-2/csv/nodejs-hw1-ex1.txt';
 const csvReadSettings = {
@@ -21,7 +21,7 @@ const csvReadSettings = {
 // Method 1: Load file line by line
 
 const getLineByLine = async () => {
-  const writeStream = fs.createWriteStream(txtFilePath);
+  const writeStream = createWriteStream(txtFilePath);
   const onError = (err) => {
     console.log(err);
   };
@@ -42,8 +42,8 @@ const getLineByLine = async () => {
 // Method 2: Load full file to RAM
 
 const getFullyLoaded = async () => {
-  const readStream = fs.createReadStream(csvFilePath);
-  const writeStream = fs.createWriteStream(txtFilePath);
+  const readStream = createReadStream(csvFilePath);
+  const writeStream = createWriteStream(txtFilePath);
 
   pipeline(readStream, csv(csvReadSettings), writeStream, (err) => {
     if (err) {

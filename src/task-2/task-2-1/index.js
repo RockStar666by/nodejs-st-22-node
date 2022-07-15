@@ -1,4 +1,4 @@
-const { pipeline, Transform } = require('stream');
+import { pipeline, Transform } from 'stream';
 
 const transform = () => {
   const transformStream = () =>
