@@ -19,4 +19,4 @@ const transform = () => {
   });
 };
 
-module.exports = transform;
+transform();
