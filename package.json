@@ -1,0 +1,27 @@
+{
+  "name": "nodejs-st-22-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "task1": "nodemon src/task-2/task-2-1/index.js",
+    "task2": "nodemon src/task-2/task-2-2/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RockStar666by/nodejs-st-22-node.git"
+  },
+  "author": "RockStar666by",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RockStar666by/nodejs-st-22-node/issues"
+  },
+  "homepage": "https://github.com/RockStar666by/nodejs-st-22-node#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  },
+  "dependencies": {
+    "csvtojson": "^2.0.10"
+  }
+}
